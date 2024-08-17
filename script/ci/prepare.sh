@@ -17,8 +17,8 @@ cd "$INSTALL_PATH"
 
 # Install erlang
 if [ ! -e "$INSTALL_PATH"/bin/erl ]; then
-  curl -L -O http://www.erlang.org/download/otp_src_$ERLANG_VERSION.tar.gz
-  tar xzf otp_src_$ERLANG_VERSION.tar.gz
+  curl -L -O http://www.erlang.org/download/otp_src_"$ERLANG_VERSION".tar.gz
+  tar xzf otp_src_"$ERLANG_VERSION".tar.gz
   cd "$ERLANG_PATH"
   ./configure --enable-smp-support \
               --enable-m64-build \
@@ -38,7 +38,7 @@ fi
 if [ ! -e "$INSTALL_PATH"/bin/elixir ]; then
   git clone https://github.com/elixir-lang/elixir "$ELIXIR_PATH"
   cd "$ELIXIR_PATH"
-  git checkout $ELIXIR_VERSION
+  git checkout "$ELIXIR_VERSION"
   PREFIX=$INSTALL_PATH make install
 else
   echo "Elixir already installed."
