@@ -21,14 +21,14 @@ if [ ! -e "$INSTALL_PATH"/bin/erl ]; then
   tar xzf otp_src_"$ERLANG_VERSION".tar.gz
   cd "$ERLANG_PATH"
   ./configure --enable-smp-support \
-              --enable-m64-build \
-              --disable-native-libs \
-              --disable-sctp \
-              --enable-threads \
-              --enable-kernel-poll \
-              --disable-hipe \
-              --without-javac \
-              --prefix="$INSTALL_PATH"
+    --enable-m64-build \
+    --disable-native-libs \
+    --disable-sctp \
+    --enable-threads \
+    --enable-kernel-poll \
+    --disable-hipe \
+    --without-javac \
+    --prefix="$INSTALL_PATH"
   make install
 else
   echo "Erlang already installed."
@@ -46,7 +46,7 @@ fi
 
 if [ "$VERSION_CIRCLECI" -ne 2 ]; then
   # Install package tools
-  mix help | grep [^.]hex > /dev/null
+  mix help | grep [^.]hex >/dev/null
   if [ $? -ne 0 ]; then
     yes Y | LC_ALL=en_GB.UTF-8 mix local.hex
   fi
