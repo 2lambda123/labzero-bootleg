@@ -3,7 +3,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd -P)"
-echo $SCRIPT_DIR
+echo "$SCRIPT_DIR"
 
 cd "${SCRIPT_DIR}/../.."
 
